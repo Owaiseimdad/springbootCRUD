@@ -15,4 +15,13 @@ public class QuestionService {
     public List<Quizes> getAllQuestions() {
        return questionDao.findAll();
     }
+
+    public List<Quizes> getQuestionByCategory(String category) {
+        return questionDao.findByQuestionType(category);
+    }
+
+    public String addQuestion(Quizes question) {
+        questionDao.save(question);
+        return "Success";
+    }
 }
