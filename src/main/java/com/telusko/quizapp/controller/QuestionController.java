@@ -19,4 +19,9 @@ public class QuestionController {
     public List<Quizes> Questions(){
         return questionService.getAllQuestions();
     }
+
+    @RequestMapping("category")
+    public String Category(){
+        return "Category";
+    }
 }

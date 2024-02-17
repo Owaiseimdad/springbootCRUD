@@ -12,4 +12,5 @@ public class Quizes {
     private String quiz_id;
     private String question;
     private String formattedQuestion;
+    private String qustionType;
 }
