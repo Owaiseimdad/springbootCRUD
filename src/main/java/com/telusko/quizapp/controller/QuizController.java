@@ -28,4 +28,10 @@ public class QuizController {
         System.out.println(id);
         return quizService.getQuizQuestions(id);
     }
+
+    @GetMapping("get/{id}/answers")
+    public ResponseEntity<List<QuestionsWrapper>> getQuizAnswers(@PathVariable int id){
+        System.out.println(id);
+        return quizService.getQuizAnswers(id);
+    }
 }

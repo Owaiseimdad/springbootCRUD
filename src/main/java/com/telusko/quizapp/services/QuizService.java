@@ -40,7 +40,20 @@ public class QuizService {
         List<QuestionsWrapper> questionsFinal = new ArrayList<>();
 
         for (QuizzesNoOptions q:  quizQuestion){
-            QuestionsWrapper quizzy = new QuestionsWrapper(q.getId(), q.getQuestion());
+            QuestionsWrapper quizzy = new QuestionsWrapper(q.getId(), q.getQuestion(), null);
+            questionsFinal.add(quizzy);
+        }
+
+        return new ResponseEntity<>(questionsFinal, HttpStatus.OK);
+    }
+
+    public ResponseEntity<List<QuestionsWrapper>> getQuizAnswers(int id) {
+        Optional<QuizCreate> quiz = quizDao.findById(id);
+        List<QuizzesNoOptions> quizQuestion =  quiz.get().getQuestions();
+        List<QuestionsWrapper> questionsFinal = new ArrayList<>();
+
+        for (QuizzesNoOptions q:  quizQuestion){
+            QuestionsWrapper quizzy = new QuestionsWrapper(q.getId(), q.getQuestion(), q.getUrl());
             questionsFinal.add(quizzy);
         }
 
